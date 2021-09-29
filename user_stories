@@ -1,0 +1,8 @@
+Amazon --
+given I am an authenticated user and I have x dollars on my account
+when I buy a y dollars worth basket
+then my account should hold x-y dollars at the end of the transaction
+
+given I am an authenticated user
+when I buy more than 100 dollars worth of items
+then I get a Congrats badge
