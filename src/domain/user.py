@@ -9,6 +9,6 @@ class User:
         self.account = 0
 
     def buy(self, basket):
-        if basket.amount > self.account:
+        if basket.get_amount() > self.account:
             raise NotEnoughMoneyError
-        self.account -= basket.amount
+        self.account -= basket.get_amount()

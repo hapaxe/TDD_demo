@@ -1,6 +1,6 @@
 import unittest
 
-from src.domain.basket import Basket
+from test.unit_tests.stubbasket import StubBasket
 from src.domain.exceptions import NotEnoughMoneyError
 from src.domain.user import User
 
@@ -11,7 +11,7 @@ class TestTransaction(unittest.TestCase):
         user = User()
         user.account = 30
         # when
-        basket = Basket(20)
+        basket = StubBasket(20)
         user.buy(basket)
         # then
         self.assertEqual(user.account, 10)
@@ -21,7 +21,7 @@ class TestTransaction(unittest.TestCase):
         user = User()
         user.account = 40
         # when
-        basket = Basket(20)
+        basket = StubBasket(20)
         user.buy(basket)
         # then
         self.assertEqual(user.account, 20)
@@ -31,7 +31,7 @@ class TestTransaction(unittest.TestCase):
         user = User()
         user.account = 10
         # when
-        basket = Basket(20)
+        basket = StubBasket(20)
         with self.assertRaises(NotEnoughMoneyError):
             user.buy(basket)
         self.assertEqual(user.account, 10)

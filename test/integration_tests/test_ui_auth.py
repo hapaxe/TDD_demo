@@ -6,9 +6,17 @@ from src.adapters.auth_ui import AuthUI
 
 class MyTestCase(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls) -> None:
+        # runs only once before the tests are being run
+        app = QApplication()
+
+    def setUp(self) -> None:
+        # runs once before EACH test
+        pass
+
     def test_auth_goes_right_if_user_exists(self):
         # given
-        app = QApplication()
         ui = AuthUI(20)
         # when
         ui.first_name = "Alex"
@@ -17,9 +25,8 @@ class MyTestCase(unittest.TestCase):
         # then
         self.assertEqual(ui.amount, 20)
 
-    def test_auth_goes_right_if_user_exists(self):
+    def test_auth_goes_right_if_user_exists_other_amount(self):
         # given
-        app = QApplication()
         ui = AuthUI(300000000)
         # when
         ui.first_name = "Alex"

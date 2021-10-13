@@ -1,7 +1,7 @@
 import unittest
 
 from src.domain.badge import Badge
-from src.domain.basket import Basket
+from test.unit_tests.stubbasket import StubBasket
 from src.domain.user import User
 
 
@@ -12,7 +12,7 @@ class MyTestCase(unittest.TestCase):
         user = User()
         user.account = 150
         # when
-        basket = Basket(100)
+        basket = StubBasket(100)
         user.buy(basket)
         # then
         badge = Badge()
